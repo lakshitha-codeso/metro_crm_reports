@@ -1,0 +1,45 @@
+
+<flectra>
+  <data>
+  <record id="change_crm_lead_for_metro" model="ir.ui.view">
+    <field name="name">change.crm.lead.for.metro</field>
+    <field name="model">crm.lead</field>
+    <field name="type">form</field>
+    <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+    <field name="arch" type="xml">        
+
+
+      <xpath expr="//field[@name='phone']" position="replace">        
+        <field name="phone" widget="phone_intl" options="{'country_field': 'country_id', 'separate_dial_code': True, 'initial_country_code': 'lk'}"/> 
+      
+      </xpath>
+
+
+      <xpath expr="//field[@name='mobile']" position="replace">        
+        <field name="mobile" widget="phone_intl" options="{'country_field': 'country_id', 'separate_dial_code': True, 'initial_country_code': 'lk'}"/> 
+      </xpath>
+
+    </field>
+  </record>
+
+  <record id="view_crm_case_leads_filter_for_metro" model="ir.ui.view">
+    <field name="name">view.crm.case.leads.filter.for.metro</field>
+    <field name="model">crm.lead</field>
+    <field name="type">form</field>
+    <field name="inherit_id" ref="crm.view_crm_case_leads_filter"/>
+    <field name="arch" type="xml">        
+
+
+      <xpath expr="//field[@name='tag_ids']" position="after">        
+        <field name="email_from"/> 
+        <field name="phone"/> 
+      
+      </xpath>
+
+    </field>
+  </record>
+
+
+
+  </data>
+</flectra> 

@@ -1,0 +1,54 @@
+<flectra>
+<data>
+<!-- Inherit quotation report (from module sale) -->
+<template id="report_header_smart_custom_internal" inherit_id="web.internal_layout">
+  <xpath expr="//div[@class='header']" position="replace">
+        <div class="header">
+          <div class="col-xs-1">
+              <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="width:100px;" />
+          </div>
+          <div class="col-xs-11 text-center ">
+                    <!-- <h4 class="mt0" t-field="company.report_header"/> -->
+            <div name="" class="mb4">
+              <p>
+              <span style="font-size:34px;" class="text-center"> <span t-field="company.partner_id.name"/></span>
+              <br/>  <span style="font-size:16px;" class="text-center font-italic" t-field="company.report_header"  /><br/>
+               
+              <span style="font-size:16px;">
+                <span t-if="company.partner_id.street"><span t-field="company.partner_id.street" />, </span> <span t-if="company.partner_id.street2"><span t-field="company.partner_id.street2" />, </span>
+                <span t-if="company.partner_id.city"><span t-field="company.partner_id.city" />, </span>
+                <span t-if="company.partner_id.state_id.name"><span t-field="company.partner_id.state_id.name" />, </span> 
+                <span t-if="company.partner_id.zip"><span t-field="company.partner_id.zip" /></span>
+                <span t-if="company.partner_id.country_id"><span t-field="company.partner_id.country_id" /></span><br/>
+                <span t-if="company.partner_id.phone">Phone: <span t-field="company.partner_id.phone" />  </span>
+                <span t-if="company.partner_id.email">Email: <span t-field="company.partner_id.email" /></span>
+              </span>
+              </p>
+                <!-- <h3><span class="company_address" t-field="company.partner_id"
+                  t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+                </h3> -->
+            </div>
+            </div>
+        </div>
+  </xpath>
+  <xpath expr="//div[@class='article']" position="after">
+        <div class="footer">
+           <div class="text-center col-xs-12">
+            <span t-field="company.report_footer"  />
+           </div>
+            <div class="col-xs-12 text-center">
+                    <ul class="list-inline">
+                        <li><span class="page"/></li>
+                        <li>/</li>
+                        <li><span class="topage"/></li>
+                    </ul>
+            </div>
+        </div>
+  </xpath>
+
+
+
+</template>
+
+</data>
+</flectra>

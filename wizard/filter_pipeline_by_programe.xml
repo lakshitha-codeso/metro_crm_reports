@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <record id="metro_crm_lead_by_courses_report_view" model="ir.ui.view">
+        <field name="name">Lead Report by courses</field>
+        <field name="model">metro_crm_reports.leadreportsbycourses</field>       
+        <field name="arch" type="xml">            
+          <form string="Report Options">
+            <field name="company_id" invisible="1"/>
+            <group col="4">               
+                <field name="date_from"/>
+                <field name="date_to"/>
+            </group>    
+            <group col="2">               
+                <field name="course_id" placeholder="All" options="{'no_create': True, 'no_create_edit':True}" />
+            </group>            
+            <footer>
+                <button name="print_report" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                <button string="Cancel" class="btn btn-default" special="cancel" />
+            </footer>
+        </form>
+        </field>
+    </record>
+
+        <record id="action_leads_by_courses_report" model="ir.actions.act_window">
+            <field name="name">Leads by Courses</field>
+            <field name="res_model">metro_crm_reports.leadreportsbycourses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="metro_crm_lead_by_courses_report_view"/>
+            <field name="target">new</field>
+            
+        </record>
+
+        <menuitem id="menu_pipeline_by_courses_report_pl" name="Leads by courses" action="action_leads_by_courses_report" parent="menu_mtro_crm_pdf_reports" />
+
+    
+</flectra>

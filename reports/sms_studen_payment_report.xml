@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <template id="sms_stu_payment_document">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <div class="font">
+                        <div class="page">
+                            <br></br>
+                           
+                            <div class="text-center">
+                                <h3>
+                                    <strong>Student Payments</strong>
+                                </h3>
+                            </div>
+                            <!-- <div class="text-center">
+                                <b>From Date: </b>
+                                <span t-esc="from_date" />
+                                <span t-raw="'%s' % start_date if start_date else ''" />
+                                <b>To Date:</b>
+                                <span t-raw="'%s' % end_date if end_date else ''" />
+                            </div> -->
+                           
+                            <table class="col-sm-6">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <h5> <b>Student Name :</b>   </h5>                                     
+                                        </td>
+                                        <td>
+                                            <span t-esc="student_name" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5><b>Contact :</b>    </h5>                                     
+                                        </td>
+                                        <td>
+                                           <span t-esc="phone" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5><b>Total Payment : </b>    </h5>                                     
+                                        </td>
+                                        <td>
+                                            <span t-esc="total_amount" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5><strong>Paid Amount:</strong></h5>
+                                        </td>
+                                        <td>
+                                            <span t-esc="paid_amount" />
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>
+                                            <h5><strong>Due Amount:</strong></h5>
+                                        </td>
+                                        <td>
+                                            <span t-esc="due_amount" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br></br>
+                            <table class="table">
+                                <thead>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status(paid/Amount)</th>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="data" t-as="o">
+                                        <tr>
+                                            <td >
+                                                <span t-esc="o['date']" />  
+                                            </td>
+                                             <td >
+                                                <span t-esc="o['amount']" /> 
+                                            </td>
+                                             <td >
+                                                <span t-esc="o['paid']" /> 
+                                            </td>
+                                        </tr>
+                                        
+
+                                    </t>
+                                    
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</flectra>

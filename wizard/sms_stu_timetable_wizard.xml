@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <record id="form_action_stu_timetable_wizard" model="ir.ui.view">
+        <field name="name">Student Timetable Report</field>
+        <field name="model">metro_crm_reports.smsstutimetablewizard</field>       
+        <field name="arch" type="xml">            
+          <form string="Report Options">
+            
+            <group col="4">   
+                <field name="cource_id"/> 
+                <field name="batch_id"/>
+                <!-- <field name="course_id" placeholder="All"/>   -->     
+            </group>   
+            <group col="4">   
+                <field name="date_from"/>
+                <field name="date_to"/>   
+            </group>          
+            <footer>
+                <button name="print_report" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                <button string="Cancel" class="btn btn-default" special="cancel" />
+            </footer>
+        </form>
+        </field>
+    </record>
+
+        <record id="action_stu_timetable_wizard" model="ir.actions.act_window">
+            <field name="name">Student Apllications</field>
+            <field name="res_model">metro_crm_reports.smsstutimetablewizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="form_action_stu_timetable_wizard"/>
+            <field name="target">new</field>
+            
+        </record>
+        <menuitem id="menu_op_pdf_reporta" parent="openeducat_core.menu_op_student_root"
+            sequence="30" name="PDF Reports" />
+        <menuitem id="menu_sms_stu_timetable" name="Student Time Table" action="action_stu_timetable_wizard" sequence="10" parent="menu_op_pdf_reporta" />
+
+    
+</flectra>

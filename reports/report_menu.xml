@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>  
+        <record id="paperformat_new_metro_a4_format" model="report.paperformat">
+            <field name="name">paperformat A4 Portrait Metro New</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">28</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">27</field>
+            <field name="dpi">100</field>
+        </record>
+
+        <report
+            id="report_lead_list_view_report"
+            string="Leads Analays"
+            model="crm.lead"
+            report_type="qweb-pdf"
+            name="metro_crm_reports.report_leadrportview"
+            file="metro_crm_reports.report_leadrportview"
+            menu="False"
+            print_report_name="'Products Labels - %s' % (object.name)"
+            paperformat="metro_crm_reports.paperformat_new_metro_a4_format"
+        />
+
+        <report
+            id="report_lead_list_view_by_counselor_report"
+            string="Leads Analays by counsellor"
+            model="crm.lead"
+            report_type="qweb-pdf"
+            name="metro_crm_reports.report_leadrportview_by_counselor"
+            file="metro_crm_reports.report_leadrportview_by_counselor"
+            menu="False"
+            print_report_name="'Products Labels - %s' % (object.name)"
+            paperformat="metro_crm_reports.paperformat_new_metro_a4_format"
+        />
+
+        <report
+            id="report_not_follow_lead_list_view_report"
+            string="No Follow Leads"
+            model="crm.lead"
+            report_type="qweb-pdf"
+            name="metro_crm_reports.report_no_follow_leadrportview"
+            file="metro_crm_reports.report_no_follow_leadrportview"
+            menu="False"
+            print_report_name="'Products Labels - %s' % (object.name)"
+            paperformat="metro_crm_reports.paperformat_new_metro_a4_format"
+        />
+
+        <report
+            id="report_lead_filter_by_courseslist_view_report"
+            string="Lead filter by courses"
+            model="crm.lead"
+            report_type="qweb-pdf"
+            name="metro_crm_reports.report_leadr_by_courses_portview"
+            file="metro_crm_reports.report_leadr_by_courses_portview"
+            menu="False"
+            print_report_name="'Products Labels - %s' % (object.name)"
+            paperformat="metro_crm_reports.paperformat_new_metro_a4_format"
+        />
+
+        <report
+            id="crm_total_enroll_report_menu"
+            string="Total Enroll Report"
+            model="crm.lead"
+            report_type="qweb-pdf"
+            name="metro_crm_reports.report_crm_total_enroll_report"
+            file="metro_crm_reports.report_crm_total_enroll_report"
+            menu="False"
+            paperformat="metro_crm_reports.paperformat_new_metro_a4_format"
+        />
+
+        <report
+            id="sms_stu_appl_analaysis_reportmenu"
+            string="Student Application Analyis"
+            model="op.admission"
+            report_type="qweb-pdf"
+            name="metro_crm_reports.sms_stu_appl_analaysis_document"
+            file="metro_crm_reports.sms_stu_appl_analaysis_document"
+            menu="False"
+            
+            paperformat="metro_crm_reports.paperformat_new_metro_a4_format"
+        />
+
+        <report
+            id="sms_stu_timetable_reportmenu"
+            string="Student Application Analyis"
+            model="op.student"
+            report_type="qweb-pdf"
+            name="metro_crm_reports.sms_stu_timetable_document"
+            file="metro_crm_reports.sms_stu_timetable_document"
+            menu="False"
+            
+            paperformat="metro_crm_reports.paperformat_new_metro_a4_format"
+        />
+
+        <report
+            id="sms_stu_payment_reportmenu"
+            string="Student Payment Analyis"
+            model="op.student"
+            report_type="qweb-pdf"
+            name="metro_crm_reports.sms_stu_payment_document"
+            file="metro_crm_reports.sms_stu_payment_document"
+            menu="False"
+            
+            paperformat="metro_crm_reports.paperformat_new_metro_a4_format"
+        />
+
+        <report
+            id="sms_stu_outstandpayment_reportmenu"
+            string="Student Outstanding Payment Analyis"
+            model="op.student"
+            report_type="qweb-pdf"
+            name="metro_crm_reports.sms_out_payment_document"
+            file="metro_crm_reports.sms_out_payment_document"
+            menu="False"
+            
+            paperformat="metro_crm_reports.paperformat_new_metro_a4_format"
+        />
+
+        
+    </data>
+</flectra>

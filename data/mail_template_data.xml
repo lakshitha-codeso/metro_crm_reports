@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data noupdate="1">
+
+<!-- % if object.origin:
+(with reference: ${object.origin} )
+% endif -->
+        <!--Email template -->
+        <record id="email_template_for_send_all_mail" model="mail.template">
+            <field name="name">Timetable changed mail</field>
+            <field name="email_from"></field>
+            <field name="subject">Reminder about Time table reshedule -${object.course_id.name}</field>
+            <!-- <field name="partner_to">${object.partner_id.lang}</field> -->
+            <field name="email_to">${object.all_emails}</field>
+            <field name="model_id" ref="openeducat_timetable.model_op_session"/>
+            <field name="auto_delete" eval="False"/>
+            <!-- <field name="report_template" ref="action_report_saleorder"/> -->
+            <field name="report_name">${(object.name or '').replace('/','_')}</field>
+            <field name="lang">${object.create_uid.lang}</field>
+            <field name="body_html"><![CDATA[
+  <p>Dear Student,
+    I have changed tha schedule of ${object.course_id.names}
+    <p>
+        <strong>Course :</strong> ${object.course_id.name}<br/>
+        <strong>Batch :</strong> ${object.batch_id.name}<br/>
+        <strong>Subject :</strong> ${object.subject_id.name}<br/>
+        <strong>Class Room :</strong> ${object.classroom_id.name}<br/>
+        <strong>Start :</strong> ${object.start_datetime}<br/>
+        <strong>End :</strong> ${object.end_datetime}<br/>
+        <strong>Timing :</strong> ${object.timing_id.name}<br/>
+    </p>
+  
+    <p>
+        If you have any questions, please let me know.
+    </p>
+
+  <p>All the best,<br/>
+  <span style="color:#888888;">
+    % if object.user_id:
+      ${object.create_uid.signature | safe}
+    % endif
+    </span><br/>
+Metropolitan Collge Dehiwala<br/>
+Academic Planning Manger</p>
+  
+
+  <p style="color:#888888;">
+  
+  </p>
+  ]]>
+</field>
+</record>
+
+    </data>
+</flectra>

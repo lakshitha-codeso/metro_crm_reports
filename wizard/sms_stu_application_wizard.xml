@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <record id="form_stu_application_total_wizard" model="ir.ui.view">
+        <field name="name">Student Application Report</field>
+        <field name="model">metro_crm_reports.smsstuapplicationwizard</field>       
+        <field name="arch" type="xml">            
+          <form string="Report Options">
+            
+            <group >               
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="course_id" placeholder="All"/>
+            </group>            
+            <footer>
+                <button name="print_report" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                <button string="Cancel" class="btn btn-default" special="cancel" />
+            </footer>
+        </form>
+        </field>
+    </record>
+
+        <record id="action_stu_application_total_wizard" model="ir.actions.act_window">
+            <field name="name">Student Apllications</field>
+            <field name="res_model">metro_crm_reports.smsstuapplicationwizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="form_stu_application_total_wizard"/>
+            <field name="target">new</field>
+            
+        </record>
+
+        <menuitem id="menu_sms_stu_application" name="Total Application Report" action="action_stu_application_total_wizard" sequence="50" parent="openeducat_admission.menu_op_admission_submenu" />
+
+    
+</flectra>

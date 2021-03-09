@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+<data>
+
+<template id="report_crm_total_enroll_report">
+
+   <t t-call="web.html_container">
+   
+      <t t-call="web.internal_layout">
+      
+        <div class="page">
+          <div class="oe_structure"/>
+              <div class="row">
+                <h2 class="text-center">Total Enroll Report</h2>
+                
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th style="width:10%">Leads Name</th>
+                            <t groups="metro.group_sms_director"> <th style="width:10%">Contact</th></t>
+                            <t groups="metro.group_sms_director"> <th style="width:10%">Email</th></t>
+                            <th style="width:10%">Enroll Date</th>
+                            <th style="width:10%">Course</th>
+                            <th style="width:10%">Level</th>
+                            <th style="width:10%">Total Value</th>
+                            <th style="width:10%">Initial Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="data" t-as="o">
+                            <tr >
+                                <td>   
+                                    <t t-esc="o['name']"/>       
+                                </td>
+                                <t groups="metro.group_sms_director">
+                                <td>
+                                   <t t-esc="o['contact']"/> 
+                                </td>
+                                </t>
+                                <t groups="metro.group_sms_director">
+                                <td>
+                                 <t t-esc="o['email_from']"/> 
+                                </td>
+                                </t>
+                                <td>
+                                 <t t-esc="o['en_date']"/> 
+                                </td>
+                                <td>
+                                   <t t-esc="o['course']"/> 
+                                </td>
+                                <td>
+                                   <t t-esc="o['level']"/> 
+                                </td>
+                                <td>
+                                   <t t-esc="o['tot_value']"/> 
+                                </td>
+                                <td>
+                                   <t t-esc="o['in_value']"/> 
+                                </td>
+                            </tr>
+                           
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+          
+        </t>
+    </t>
+
+</template>
+
+</data>
+</flectra>

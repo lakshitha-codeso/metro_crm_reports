@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data noupdate="1">
+
+<!-- % if object.origin:
+(with reference: ${object.origin} )
+% endif -->
+        <!--Email template -->
+        <record id="email_template_application" model="mail.template">
+            <field name="name">Application - Send by Email</field>
+            <field name="email_from">dinuth@codeso.lk</field>
+            <field name="subject">test</field>
+            <field name="partner_to"></field>
+            <field name="model_id" ref="openeducat_admission.model_op_admission"/>
+            <field name="auto_delete" eval="True"/>
+            <!-- <field name="report_template" ref="action_report_saleorder"/> -->
+            <field name="report_name"></field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+  <p>Dear
+
+
+  </p>
+
+
+
+  <p>You can reply to this email if you have any questions.</p>
+  <p>Thank you,</p>
+
+  <p style="color:#888888;">
+mkmkmkmk
+  </p>
+  ]]>
+</field>
+</record>
+
+    </data>
+</flectra>

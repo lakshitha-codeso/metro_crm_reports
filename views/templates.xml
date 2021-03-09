@@ -1,0 +1,25 @@
+<flectra>
+    <data>
+       <record id="op_session_email_button" model="ir.ui.view">
+            <field name="name">op.admission.metro.emailo.button</field>
+            <field name="model">op.session</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="openeducat_timetable.view_op_session_form"/>
+            <field name="arch" type="xml">    
+                
+                <xpath expr="//button[@name='lecture_confirm']" position="after">    
+                    <button name="send_timetable_updateemail" string="Send Email" class="oe_highlight" type="object" attrs="{'invisible':[('cus_edited','=',False)]}" />
+                </xpath>
+                <xpath expr="//field[@name='end_datetime']" position="after">       
+                    <field name="cus_edited" invisible="1"/>
+                    <field name="all_emails" invisible="1"/>
+                    
+                </xpath>
+                
+            </field>
+        </record>
+
+        <menuitem id="menu_mtro_crm_pdf_reports" name="PDF Reports" parent="crm.crm_menu_report"/>
+
+    </data>
+</flectra>

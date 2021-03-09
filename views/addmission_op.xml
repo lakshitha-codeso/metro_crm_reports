@@ -1,0 +1,19 @@
+
+<flectra>
+  <data>
+  <record id="openeducat_admission.view_op_admission_form_email" model="ir.ui.view">
+    <field name="name">openeducat_admission.view_op_admission_form_email</field>
+    <field name="model">op.admission</field>
+    <field name="type">form</field>
+    <field name="inherit_id" ref="openeducat_admission.view_op_admission_form"/>
+    <field name="arch" type="xml">       
+    
+      <xpath expr="//button[@name='submit_form']"  position="before">        
+        <button name="action_email_send_addmission"  states="draft" string="Send Email" type="object"  class="btn-primary"/>  
+      </xpath>
+
+
+    </field>
+  </record>
+  </data>
+</flectra> 

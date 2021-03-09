@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+<data>
+<template id="report_leadrportview">
+   <t t-call="web.html_container">
+      <t t-call="web.internal_layout">
+        <div class="page">
+          <div class="oe_structure"/>
+              <div class="row">
+                <h2 class="text-center">Total Leads</h2>
+                <p>Date From <t t-esc="date_from"/> To <t t-esc="date_to"/>   </p>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th style="width:20%">Leads Name</th>
+                            <th style="width:20%">Date</th>
+                            <th style="width:10%">Source</th>
+                            <th style="width:10%">Customer Name</th>
+                            <!-- <th>Course/Program</th> -->
+                            <t groups="metro.group_sms_director"><th style="width:20%">Email</th></t>
+                            <t groups="metro.group_sms_director"> <th style="width:10%">Contact No</th></t>
+                            <th style="width:10%">Requested Program</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="data" t-as="o">
+                            <tr >
+                                <td style="width:20%;">   
+                                    <t t-esc="o['name']"/>                                   
+                                    
+                                </td>
+                                <td style="width:20%;">
+                                   <t t-esc="o['create_date']"/> 
+                                </td>
+                                <td style="width:10%;">
+                                 <t t-esc="o['source']"/> 
+                                </td>
+
+                                <td style="width:10%;">
+                                 <t t-esc="o['partner']"/> 
+                                </td>
+                                <!-- <td style="width:20%;">
+                                    course field 
+                                </td> -->
+                                <t groups="metro.group_sms_director">
+                                <td style="width:20%;">
+                                 <t t-esc="o['email_from']"/> 
+                                </td>
+                                </t>
+
+                                <t groups="metro.group_sms_director">
+                                <td style="width:10%;">
+                                   <t t-esc="o['phone']"/> 
+                                </td>
+                                </t>
+                                <td style="width:20%;">
+                                   <!-- Prgramme field  -->
+                                </td>
+                            </tr>
+                            <!-- <tr t-foreach="get_children(o.bom_line_ids)" t-as="l">
+                                <td style="padding-left: 20px;">
+                                    <span style="color: white;" t-esc="'... '*(l['level'])"/>
+                                    <span t-esc="l['pname']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="l['pqty']"/>
+                                    <span t-esc="l['uname']" groups="product.group_uom"/>
+                                </td>
+                                <td>
+                                    <span t-esc="l['code']"/>
+                                </td>
+                            </tr> -->
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        </t>
+    </t>
+</template>
+
+<!-- <template id="report_leadrportview">
+    <t t-call="web.basic_layout">
+        <div class="page">
+            <t t-foreach="docs" t-as="template">
+                <t t-foreach="template.product_variant_ids" t-as="product">
+                    <t t-call="product.report_simple_label">
+                        <t t-set="product" t-value="product"/>
+                    </t>
+                </t>
+            </t>
+        </div>
+    </t>
+</template> -->
+
+
+
+<!-- <template id="report_productlabel">
+    <t t-call="web.basic_layout">
+        <div class="page">
+            <t t-foreach="docs" t-as="product">
+                <t t-call="product.report_simple_label">
+                    <t t-set="product" t-value="product"/>
+                </t>
+            </t>
+        </div>
+    </t>
+</template> -->
+
+</data>
+</flectra>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <record id="metro_crm_lead_report_by_counsiller_view" model="ir.ui.view">
+        <field name="name">Counselor wise report </field>
+        <field name="model">metro_crm_reports.leadreportsbycounselor</field>       
+        <field name="arch" type="xml">            
+          <form string="Report Options">
+            <field name="company_id" invisible="1"/>
+            <group col="4">               
+                <field name="date_from"/>
+                <field name="date_to"/>
+            </group> 
+            <group col="4">               
+                <field name="counselor"/>
+                <field name="stage_id" placeholder="All"/>
+            </group>            
+            <footer>
+                <button name="print_report" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                <button string="Cancel" class="btn btn-default" special="cancel" />
+            </footer>
+        </form>
+        </field>
+    </record>
+
+        <record id="action_generate_total_leads_reportby_counsiller_pl" model="ir.actions.act_window">
+            <field name="name">Counselor wise report</field>
+            <field name="res_model">metro_crm_reports.leadreportsbycounselor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="metro_crm_lead_report_by_counsiller_view"/>
+            <field name="target">new</field>
+            
+        </record>
+
+        <menuitem id="menu_lead_by_counsiller_report_pl" name="Counsellor wise report" action="action_generate_total_leads_reportby_counsiller_pl" parent="menu_mtro_crm_pdf_reports" />
+
+    
+</flectra>
